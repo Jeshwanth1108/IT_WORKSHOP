@@ -1,0 +1,528 @@
+
+           // Grep command in Unix
+           
+user@jeshu1108:~$ cat> geekfile.txt
+unix is great os. unix is open source. unix is free os.
+learn operating system.
+unix linux which one you choose?
+unix is esay it learn. unix is a multiuser os. learn unix. unix is a powerful.
+
+user@jeshu1108:~$ grep -c "unix" geekfile.txt   ((this prints only a count of lines that match a pattern))
+3
+
+user@jeshu1108:~$ grep -h "unix" geekfile.txt    ((Display the matched lines, but do not display the filenames))
+unix is great os. unix is open source. unix is free os.
+unix linux which one you choose?
+unix is esay it learn. unix is a multiuser os. learn unix. unix is a powerful.
+
+user@jeshu1108:~$ grep -l "unix" geekfile.txt    ((Display list of filenames only.))
+geekfile.txt
+
+user@jeshu1108:~$ grep -n "unix" geekfile.txt   ((Display the matched lines and line numbers))
+1:unix is great os. unix is open source. unix is free os.
+3:unix linux which one you choose?
+4:unix is esay it learn. unix is a multiuser os. learn unix. unix is a powerful.
+
+user@jeshu1108:~$ grep -v "unix" geekfile.txt   (( This prints out all the lines that do not matches the pattern))
+learn operating system.
+
+user@jeshu1108:~$ grep -e "unix" geekfile.txt   (( Specifies expression with this option. can use multiple times ))
+unix is great os. unix is open source. unix is free os.
+unix linux which one you choose?
+unix is esay it learn. unix is a multiuser os. learn unix. unix is a powerful.
+
+user@jeshu1108:~$ grep -o "unix" geekfile.txt   (( prints onle the matched parts of the matched lines ))
+unix
+unix
+unix
+unix
+unix
+unix
+unix
+unix
+
+user@jeshu1108:~$ grep  "^unix" geekfile.txt  
+unix is great os. unix is open source. unix is free os.
+unix linux which one you choose?
+unix is esay it learn. unix is a multiuser os. learn unix. unix is a powerful.
+
+                 // sed commonds in unix
+
+user@jeshu1108:~$ sed 's/unix/linux/' geekfile.txt    ((Replacing or substituting string)), (sed command is mostly used to replace the text in a file))
+linux is great os. unix is open source. unix is free os.
+learn operating system.
+linux linux which one you choose?
+linux is esay it learn. unix is a multiuser os. learn unix. unix is a powerful.
+
+user@jeshu1108:~$ sed 's/unix/linux/3' geekfile.txt    ((Replacing the nth occurence of a pattern in a line ))
+unix is great os. unix is open source. linux is free os.
+learn operating system.
+unix linux which one you choose?
+unix is esay it learn. unix is a multiuser os. learn linux. unix is a powerful.
+user@jeshu1108:~$ sed 's/unix/linux/5' geekfile.txt
+unix is great os. unix is open source. unix is free os.
+learn operating system.
+unix linux which one you choose?
+unix is esay it learn. unix is a multiuser os. learn unix. unix is a powerful.
+
+user@jeshu1108:~$ cat> file1.txt
+hello
+user@jeshu1108:~$ sed 's/hello/HELLO/g' geekfile.txt
+unix is great os. unix is open source. unix is free os.
+learn operating system.
+unix linux which one you choose?
+unix is esay it learn. unix is a multiuser os. learn unix. unix is a powerful.
+user@jeshu1108:~$ sed 's/hello/HELLO/g' file1.txt
+HELLO
+user@jeshu1108:~$ sed '2s/hello/HELLO/2g' file1.txt
+hello
+user@jeshu1108:~$ sed '2 s/hello/HELLO/2 g' file1.txt
+hello
+user@jeshu1108:~$ sed '2d' file1.txt
+hello
+user@jeshu1108:~$ sed '/core/d' file1.txt
+hello
+user@jeshu1108:~$ 
+
+
+                // sort command 
+user@jeshu1108:~$ cat> sfile.txt   (( creating a file))
+balram
+hanuman
+shiva
+aravind
+arun
+chintu
+chethan
+farooq
+user@jeshu1108:~$ sort sfile.txt   (( sorting the elements in the ascending order))
+aravind
+arun
+balram
+chethan
+chintu
+farooq
+hanuman
+shiva
+ 
+user@jeshu1108:~$ sort sfile.txt -r     (( sorting the elements in the reverse order))
+shiva
+hanuman
+farooq
+chintu
+chethan
+balram
+arun
+aravind
+
+user@jeshu1108:~$ sort sfile.txt -o   ((specifies an output file for the sorted data. Functionally equivalent to redirecting output to a file.))
+sort: option requires an argument -- 'o'
+Try 'sort --help' for more information.
+user@jeshu1108:~$ sort sfile.txt -n   (( sorts a file numerically  (interprets data as numbers). ))
+aravind
+arun
+balram
+chethan
+chintu
+farooq
+hanuman
+shiva
+
+user@jeshu1108:~$ sort sfile.txt -nr    (( sorting the file with numeric data in the reverse order))
+shiva
+hanuman
+farooq
+chintu
+chethan
+balram
+arun
+aravind
+
+user@jeshu1108:~$ sort sfile.txt -k      ((sorts a table based on a specific column number))
+sort: option requires an argument -- 'k'
+Try 'sort --help' for more information.
+
+user@jeshu1108:~$ sort sfile.txt -c    ((checks if the file is already sorted and reports any disorder ))
+sort: sfile.txt:4: disorder: aravind
+
+user@jeshu1108:~$ sort sfile.txt -u     ((sorts and removes duplicate lines, providing a unique sorted list))
+aravind
+arun
+balram
+chethan
+chintu
+farooq
+hanuman
+shiva
+
+user@jeshu1108:~$ cat> mfile.txt  (( creating a month data file ))
+october
+january
+july
+november
+august
+
+user@jeshu1108:~$ sort mfile.txt -M     (( sorting month names using -M command ))
+january
+febrary
+march
+june
+september
+october
+ 
+ 
+           // chmod commands
+
+user@jeshu1108:~$ chmod u+x mfile.txt
+
+
+user@jeshu1108:~$ ls
+ 1.jpg                  Downloads                                java.html                 'oop lab manual.pdf'          stack.c
+ 2.jpg                  DSA                                      javascript.html           'oops test'                   stali.c
+ AARON-2K23            'E1-ENGLISH-SCANNED BOOK.pdf'             jdk-21_linux-x64_bin.deb   org                          sujoysarkar@tty.sdf.org
+'Action plan.pptx'     'Engineering Graphics Manual final.pdf'   jesh                      'orientaion p1'               Templates
+ actorstomorrow.txt    'English for Engineers_Answer Key.pdf'    jeshu                      pat.c                        web.htlm
+'Are U Ok'              example                                  j.jpg                      Pictures                     web_technology
+'bathukamma songs'      expstack.c                               JVM                       'pps assignment 2'            week1
+ bfs1.c                 file                                     linear.c                  'pps assignment 3'           'week1(1).html'
+ BFSlist.c              file1.txt                                link                       ppslab                       week1_IT
+ binsearch.c            file3                                    memories                   Public                       week2
+ bst.c                  file4                                    merge.c                    pwd                          week2_IT
+ Calculator             file5                                    mfile.txt                 'python links'                week3
+ catalogo_invelon.csv   file6                                    monthfile.txt              quicksort.c                  week4
+'c programs'            filechange.html                          mouseOver1.html            quli.c                       week5
+ create.c               FileGd.614155ca9d304_6384.pdf            mouseover.html            'reading materials'           week6
+ cricket.c              form_validation.html                     Music                      reverse.c                    week7
+'dbms folder'           geekfile.txt                             mypack1                    rgukt.html                  'WORD PLAY QUESTIONS.pptx'
+ dept                   grepfilter.txt                          'My Pictures'               series.c                     wps-office-prometheus.desktop
+ Desktop                ha.c                                    'mysql lab1'                sfile.txt                    zoom.html
+ displaydt.c           'HOPE HOUSE.pdf'                         'mysql lab3'               'SHOBHAKRUTH TREASURE HUNT'
+'dj songs'              InfixToPostfix.c                         mywebpage.html             snap
+ Documents              instructions                             new                        songs
+ dodel.c               'java file'                               newfolder                  stackarr.c
+user@jeshu1108:~$ chmod go+w mfile.txt
+user@jeshu1108:~$ ls
+ 1.jpg                  Downloads                                java.html                 'oop lab manual.pdf'          stack.c
+ 2.jpg                  DSA                                      javascript.html           'oops test'                   stali.c
+ AARON-2K23            'E1-ENGLISH-SCANNED BOOK.pdf'             jdk-21_linux-x64_bin.deb   org                          sujoysarkar@tty.sdf.org
+'Action plan.pptx'     'Engineering Graphics Manual final.pdf'   jesh                      'orientaion p1'               Templates
+ actorstomorrow.txt    'English for Engineers_Answer Key.pdf'    jeshu                      pat.c                        web.htlm
+'Are U Ok'              example                                  j.jpg                      Pictures                     web_technology
+'bathukamma songs'      expstack.c                               JVM                       'pps assignment 2'            week1
+ bfs1.c                 file                                     linear.c                  'pps assignment 3'           'week1(1).html'
+ BFSlist.c              file1.txt                                link                       ppslab                       week1_IT
+ binsearch.c            file3                                    memories                   Public                       week2
+ bst.c                  file4                                    merge.c                    pwd                          week2_IT
+ Calculator             file5                                    mfile.txt                 'python links'                week3
+ catalogo_invelon.csv   file6                                    monthfile.txt              quicksort.c                  week4
+'c programs'            filechange.html                          mouseOver1.html            quli.c                       week5
+ create.c               FileGd.614155ca9d304_6384.pdf            mouseover.html            'reading materials'           week6
+ cricket.c              form_validation.html                     Music                      reverse.c                    week7
+'dbms folder'           geekfile.txt                             mypack1                    rgukt.html                  'WORD PLAY QUESTIONS.pptx'
+ dept                   grepfilter.txt                          'My Pictures'               series.c                     wps-office-prometheus.desktop
+ Desktop                ha.c                                    'mysql lab1'                sfile.txt                    zoom.html
+ displaydt.c           'HOPE HOUSE.pdf'                         'mysql lab3'               'SHOBHAKRUTH TREASURE HUNT'
+'dj songs'              InfixToPostfix.c                         mywebpage.html             snap
+ Documents              instructions                             new                        songs
+ dodel.c               'java file'                               newfolder                  stackarr.c
+ 
+user@jeshu1108:~$ chmod a=rwx mfile.txt
+user@jeshu1108:~$ ls
+
+ 1.jpg                  Downloads                                java.html                 'oop lab manual.pdf'          stack.c
+ 2.jpg                  DSA                                      javascript.html           'oops test'                   stali.c
+ AARON-2K23            'E1-ENGLISH-SCANNED BOOK.pdf'             jdk-21_linux-x64_bin.deb   org                          sujoysarkar@tty.sdf.org
+'Action plan.pptx'     'Engineering Graphics Manual final.pdf'   jesh                      'orientaion p1'               Templates
+ actorstomorrow.txt    'English for Engineers_Answer Key.pdf'    jeshu                      pat.c                        web.htlm
+'Are U Ok'              example                                  j.jpg                      Pictures                     web_technology
+'bathukamma songs'      expstack.c                               JVM                       'pps assignment 2'            week1
+ bfs1.c                 file                                     linear.c                  'pps assignment 3'           'week1(1).html'
+ BFSlist.c              file1.txt                                link                       ppslab                       week1_IT
+ binsearch.c            file3                                    memories                   Public                       week2
+ bst.c                  file4                                    merge.c                    pwd                          week2_IT
+ Calculator             file5                                    mfile.txt                 'python links'                week3
+ catalogo_invelon.csv   file6                                    monthfile.txt              quicksort.c                  week4
+'c programs'            filechange.html                          mouseOver1.html            quli.c                       week5
+ create.c               FileGd.614155ca9d304_6384.pdf            mouseover.html            'reading materials'           week6
+ cricket.c              form_validation.html                     Music                      reverse.c                    week7
+'dbms folder'           geekfile.txt                             mypack1                    rgukt.html                  'WORD PLAY QUESTIONS.pptx'
+ dept                   grepfilter.txt                          'My Pictures'               series.c                     wps-office-prometheus.desktop
+ Desktop                ha.c                                    'mysql lab1'                sfile.txt                    zoom.html
+ displaydt.c           'HOPE HOUSE.pdf'                         'mysql lab3'               'SHOBHAKRUTH TREASURE HUNT'
+'dj songs'              InfixToPostfix.c                         mywebpage.html             snap
+ Documents              instructions                             new                        songs
+ dodel.c               'java file'                               newfolder                  stackarr.c
+
+
+                  // AWK commands 
+                  
+user@jeshu1108:~$ cat> emp.txt       (( creating a new file))
+ajay manager account 45000
+sunil clerk account 25000
+varun manager sales 50000
+amit manager account 47000 
+tarun peon sales 15000
+deepak clerk sales 23000
+sunil peon sales 15000
+sathvik director purchases 80000 
+
+user@jeshu1108:~$ awk '/clerk/ {print}' emp.txt   (( Prints the lines which match the given pattern ))
+sunil clerk account 25000
+deepak clerk sales 23000
+
+user@jeshu1108:~$ awk '{print 1,4}' emp.txt   (( Splitting a line into fields))
+1 4
+1 4
+1 4
+1 4
+1 4
+1 4
+1 4
+1 4
+user@jeshu1108:~$ awk '{print $3}' emp.txt   (( Splitting a line into fields))
+account
+account
+sales
+account
+sales
+sales
+sales
+purchases
+
+user@jeshu1108:~$ awk '{print NR}' emp.txt   (( By using NR built-in variables (Display line Number)))
+1
+2
+3
+4
+5
+6
+7
+8
+
+          // SSH commands
+
+ssh jeshu1108@tty.sdf.org
+jeshu1108@tty.sdf.org's password: 
+
+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+=-
+  This host is named in honor of the brilliant hacker and friend
+
+                       -= SHIMIZU Ryo =-
+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+-+=+=-
+
+[ 'jeshu1108' will expire in 665 days - Please 'validate' your account soon ]
+
+Please press your BACKSPACE key: 
+
+=======================================================================
+SDF host uptime report for Seattle WA, Dallas TX (USA) and Germany (EU)
+             Please use 'tty.sdf.org' for general access
+=======================================================================
+
+SERVER          DAYS+HOUR:MIN       USERS   MACHINE LOAD
+----------------------------------------------------------------------
+9p             up  23+14:20,   12 users,  load:   0.00,   0.00,   0.00
+aNONradio      up  181+6:12,   50 users,  load:   0.28,   0.45,   0.40
+faeroes        up  63+08:19,   78  user,  load:   2.54,   2.45,   2.37
+iceland        up  63+11:41,   50 users,  load:   1.92,   1.90,   1.62
+jitsi          up  33+15:30,  798 users,  load:   6.46,   6.97,   7.46
+ma             up   56+8:31,    0 users,  load:   7.66,   6.32,   6.95
+matrix         up  54+12:03,  313 users,  load:   1.89,   2.31,   2.42
+miku           up  63+11:39,    3 users,  load:   0.04,   0.06,   0.02
+mx             up  63+08:41,  307  user,  load:   2.21,   2.61,   2.31
+norge          up  63+08:16,   93 users,  load:   0.07,   0.03,   0.00
+otaku          up  38+15:37,   49 users,  load:   0.52,   0.54,   0.49
+pixelfed       up  183+1:09, 2066 users,  load:   0.12,   0.28,   0.27
+rie            up  63+11:38,   61  user,  load:   1.10,   1.14,   1.21
+ryo            up  63+11:20,   63 users,  load:   0.07,   0.27,   0.39
+sdf            up  25+01:22,  130 users,  load:   3.29,   2.80,   2.69
+sdfeu          up 629+05:42,   34 users,  load:   3.98,   3.41,   3.21
+sverige        up  63+11:39,   10 users,  load:   0.19,   0.32,   0.32
+unix50         up  181+6:11,   89 users,  load: 116.70, 117.07, 117.21
+vps3           up 181+06:03,   49 users,  load:   0.12,   1.33,   1.20
+vps9           up 182+16:30,   17 users,  load:   5.99,   5.84,   5.48
+                             4272 total
+(continue)
+The Moon is Waning Gibbous (91% of Full)
+                 .------------
+             .--'  o     . .   `-
+          .-'   .    O   .       . `
+       .-'@   @@@@@@@   .  @@@@@      
+      /@@@  @@@@@@@@@@@   @@@@@@@   .  
+    ./    o @@@@@@@@@@@   @@@@@@@       
+   /@@  o   @@@@@@@@@@@.   @@@@@@@   O   
+  /@@@@   .   @@@@@@@o    @@@@@@@@@@     @
+  |@@@@@               . @@@@@@@@@@@@@ o @
+ /@@@@@  O  `.-./  .      @@@@@@@@@@@@    @      Full Moon +    
+ | @@@@    --`-'       o     @@@@@@@@ @@@@       3  2:41:12
+ |@ @@@        `    o      .  @@   . @@@@@@      Last Quarter - 
+ |       @@  @         .-.     @@@   @@@@@@      4 17:33:00
+ \  . @        @@@     `-'   . @@@@   @@@@ 
+  |      @@   @@@@@ .           @@   .    
+  \     @@@@  @\@@    /  .  O    .     o  
+   \  o  @@     \ \  /         .    .    
+    `\     .    .\.-.___   .      .   .-
+      \           `-'                `-
+       `-.   o   / |     o    O   .   
+          `-.   /     .       .    .
+             `--.       .      .-
+                 `------------
+(continue)
+[12-Mar-24 23:55:30 lycanthropene       axonohydrolia                  outer space]
+% Casino owners don't want you to know this one special trick…
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[16-Mar-24 14:56:52    lohang              LohanG                    Sri Lanka]
+% Happy weekend SDF :)
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[17-Mar-24 00:29:41    neural              neural                        Italy]
+% Saying hello from Italy! ;)
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[17-Mar-24 01:59:32        tf                 Tom                  Connecticut]
+% Ciao!
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[18-Mar-24 03:26:29 rodiongork              Rodion                    st-Pete's]
+% From Italy? L'Italiano vero? or guesting there? drop a message at bboard!
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[19-Mar-24 20:56:14  amedrado       Adler Medrado            Sao Paulo, Brazil]
+% Hello friends.
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[20-Mar-24 07:10:17 burgertron               Grant                   Denton, TX]
+% Checking in again, what's up gamers?
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[20-Mar-24 14:05:53  somedude            somedude                Flin Flon, MB]
+% Been playing cataclysmdda again. Having a blast.
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[20-Mar-24 21:25:46     kosan               Kosan                      Germany]
+% Wishing a happy Newroz to those who celebrate it! ^^
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[22-Mar-24 05:36:16     sh0rk               sh0rk            GA, United States]
+% hey guys, im new to doing unix and stuff but this is really cool and i like using it! how yall doing?
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[22-Mar-24 11:31:20 rodiongork              Rodion                    St-Pete's]
+% Hi Sh0rk, we are fine, thanks, don't miss "bboard" and feel free to tell more about how you come here :)
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[22-mar-24 13:22:19     peron         Juan Perón             Puerta de Hierro]
+% The PSU may get energized, but the real power grows out from the Ethernet port.
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[22-Mar-24 17:13:26 naterator           naterator               Frisco, TX, US]
+% Hi from Frisco! Thanks for being awesome, SDF!
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[23-Mar-24 13:47:00  claudiom            ClaudioM           Homestead, FL, USA]
+% WelCOM, sh0rk! Be sure to hop on COM as well and say hi in the aNONradio room! o/
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[25-Mar-24 18:17:35 lycanthropene          weretomato                    NERV Alba]
+% Everyone gets hugged and turns into Irn-Bru.
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[26-Mar-24 08:52:49 tusharhero          tusharhero                             ]
+% Hey guys, checkout my new blog https://tusharhero.codeberg.page/ Any feedback would be appreciated ^^
+ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+[26-Mar-24 12:02:30        tf                 Tom                      CT, USA]
+% I like the minimalist style, tusharhero. Very nice!
+7736 guestbook entries.
+
+Type 'help' for Commands.
+Type 'com' to chat with other users.
+Type 'ttytter' to listen to Twitter Tweets anonymously.
+Type 'mud' to play the SDFmud.
+Type 'mkhomepg' to set up your personal website.
+
+Did you know you can become a permanent LIFETIME member of SDF
+by making a onetime donation of $36?  Type 'arpa' for more info!
+
+ryo:/sdf/udd/m/jeshu1108> mkdir manu
+ryo:/sdf/udd/m/jeshu1108> ls
+.          .cshrc     .login     .shrc      manu
+..         .history   .logout    .signature
+ryo:/sdf/udd/m/jeshu1108> mkdir rgukt
+ryo:/sdf/udd/m/jeshu1108> ls
+.          .cshrc     .login     .shrc      manu
+..         .history   .logout    .signature rgukt
+ryo:/sdf/udd/m/jeshu1108> cd rgukt
+ryo:/sdf/udd/m/jeshu1108/rgukt> touch manu.txt
+ryo:/sdf/udd/m/jeshu1108/rgukt> ls
+.         ..        manu.txt
+ryo:/sdf/udd/m/jeshu1108/rgukt> rm manu.txt
+ryo:/sdf/udd/m/jeshu1108/rgukt> ls
+.  ..
+ryo:/sdf/udd/m/jeshu1108/rgukt> touch set.txt
+ryo:/sdf/udd/m/jeshu1108/rgukt> ls
+.       ..      set.txt
+ryo:/sdf/udd/m/jeshu1108/rgukt> 
+
+            // FTP commands
+            
+user@jeshu1108:~$ ftp://ftp.dlptest.com/
+bash: ftp://ftp.dlptest.com/: No such file or directory
+user@jeshu1108:~$ ftp ftp.dlptest.com
+Connected to ftp.dlptest.com.
+220 Welcome to the DLP Test FTP Server
+Name (ftp.dlptest.com:user): dlpuser
+331 Please specify the password.
+Password:
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls
+200 PORT command successful. Consider using PASV.
+150 Here comes the directory listing.
+-rw-r--r--    1 1001     1001         2276 Apr 02 04:42 RI00000000_20240402054213.csv
+-rw-r--r--    1 1001     1001        10000 Apr 02 04:45 _11471977
+-rw-r--r--    1 1001     1001     10874339 Apr 02 04:46 test.csv
+-rw-r--r--    1 1001     1001     20289440 Apr 02 04:48 test100M
+226 Directory send OK.
+ftp> history
+?Invalid command
+ftp> help
+Commands may be abbreviated.  Commands are:
+
+!		dir		mdelete		qc		site
+$		disconnect	mdir		sendport	size
+account		exit		mget		put		status
+append		form		mkdir		pwd		struct
+ascii		get		mls		quit		system
+bell		glob		mode		quote		sunique
+binary		hash		modtime		recv		tenex
+bye		help		mput		reget		tick
+case		idle		newer		rstatus		trace
+cd		image		nmap		rhelp		type
+cdup		ipany		nlist		rename		user
+chmod		ipv4		ntrans		reset		umask
+close		ipv6		open		restart		verbose
+cr		lcd		prompt		rmdir		?
+delete		ls		passive		runique
+debug		macdef		proxy		send
+ftp> account
+Account:
+502 ACCT not implemented.
+ftp> ascii
+200 Switching to ASCII mode.
+ftp> 56
+?Invalid command
+ftp> ls
+200 PORT command successful. Consider using PASV.
+150 Here comes the directory listing.
+-rw-r--r--    1 1001     1001         2276 Apr 02 04:42 RI00000000_20240402054213.csv
+drwxr-xr-x    3 1001     1001           18 Apr 02 04:49 Vorne
+-rw-r--r--    1 1001     1001        10000 Apr 02 04:45 _11471977
+-rw-r--r--    1 1001     1001     10874339 Apr 02 04:46 test.csv
+-rw-r--r--    1 1001     1001     55705914 Apr 02 04:49 test100M
+226 Directory send OK.
+ftp> struct
+We only support file structure, sorry.
+ftp> type
+Using ascii mode to transfer files.
+ftp> dis
+221 Goodbye.
+ftp> pwd
+Not connected.
+ftp> remotehelp
+?Invalid command
+ftp> quit
+user@jeshu1108:~$ 
+
+          // Shutdown commands
+
+user@jeshu1108:~$ shutdown -r +6 reboot (( This command helps us to shutdown our pc or laptop securely, it may also provide the time formate to shutdown our pc after certain time period ))
+
+
+
