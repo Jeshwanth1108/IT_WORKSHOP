@@ -1,0 +1,36 @@
+// creating Time Table
+
+\documentclass{article}
+\begin{document}
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|p{2cm}||c|c|c|c|c|c|c|}
+			\hline
+			\textbf{YEAR}&\textbf{Time}&\textbf{Mon}&\textbf{Tues}&\textbf{Wed}&\textbf{Thu}&\textbf{Fri}&\textbf{Sat}\\
+			\hline
+			\textbf{C4}&\textbf{Slot1}&---&---&\textbf{B}&---&---&---\\
+			\hline
+			\textbf{CSE}&\textbf{Slot2}&\textbf{C}&\textbf{E}&\textbf{B}&\textbf{A}&\textbf{C}&---\\
+			\hline
+			\textbf{   }&\textbf{Slot3}&\textbf{A}&\textbf{E}&\textbf{A}&\textbf{A}&\textbf{C}&---\\
+			\hline
+			\textbf{     }&\textbf{Slot4}&---&\textbf{X}&\textbf{X}&---&---&---\\
+			\hline
+			\multicolumn{8}{|c|}{Lunch Break}\\
+			\hline
+				---&\textbf{Slot5}&\textbf{X}&\textbf{Y}&\textbf{B}&\textbf{F}&\textbf{D}&---\\
+			\hline
+				---&\textbf{Slot6}&\textbf{E}&\textbf{Y}&\textbf{B}&\textbf{F}&\textbf{D}&---\\
+			\hline
+				---&\textbf{Slot7}&---&\textbf{Y}&\textbf{B}&\textbf{F}&\textbf{D}&---\\
+			\hline
+				---&---&---&---&---&---&---&---\\
+			\hline
+			\end{tabular}
+			\caption{Time Table}
+			\label{tab:Example}
+		\end{table}
+\end{document}
+
+
+//
