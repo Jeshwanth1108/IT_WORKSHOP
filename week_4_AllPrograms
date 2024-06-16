@@ -45,5 +45,29 @@
 
 // creating figures......
 
+\documentclass{article}
+\usepackage{graphicx}
+\begin{document}
+	\section{Figures}
+	Make sure to replace example-image with the filename of your image.
+	This code will insert an image named example-image and add a caption
+	below it. The \centering command is used to center the image
+	horizontally. The /caption command adds a caption to the image, and the
+	/label command assigns a label to the figure so you can refer to it later
+	using /ref{}.
+	
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{j.jpg}
+		\caption{image 1}
+		\label{fig: example1}
+	\end{figure}
+\end{document}
+
+// creating equation........
+
+
+
 
 
